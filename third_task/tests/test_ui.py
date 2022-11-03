@@ -4,7 +4,7 @@ import pytest
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.select import Select
 
-from third_task.base.base_logic import BaseLogic
+from .base_logic import BaseLogic
 
 
 @pytest.mark.usefixtures("setup")
