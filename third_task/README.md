@@ -13,7 +13,7 @@
 
 
 #### Usage ▶️
-    run module "test_ui" in IDE (automatioly configure start for pytest)
+    pytest -s -v
 
 #### Example of output ✨
     Выбран Vivo Y22 64GB синий космос [V2207], вариант оплаты: 6 мес по 93,16 руб/мес'
