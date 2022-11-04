@@ -8,5 +8,5 @@
 #### 2. Then run in terminal next line:
     pip install -r requirements.txt
 ## 😎 Automation testing on site A1
-#### Why is so easy?)
+#### Why is it so easy?)
 ![john-travolta-confused](https://user-images.githubusercontent.com/72101790/199815971-9056a853-290d-4c2b-ae85-3accc4b1f3be.gif)
