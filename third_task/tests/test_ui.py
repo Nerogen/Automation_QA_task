@@ -17,10 +17,14 @@ class TestUi:
         phones: list[WebElement] = test_object.are_present("class_name", "button--primary")
         # choose random one
         phone = random.choice(phones)
+        # get current url of page
+        page_url: str = test_object.driver.current_url
         # go to element on page
         test_object.driver.execute_script("arguments[0].scrollIntoView();", phone)
         # go to phone card
         phone.click()
+        # check what previous url != current url
+        assert page_url != test_object.driver.current_url
 
         # make selector object for select item
         menu: Select = Select(test_object.is_present('xpath', '//*[@id="priceBlock_selector_CURRENT_CONTRACT"]'))
@@ -33,9 +37,9 @@ class TestUi:
         # menu.select_by_visible_text(variants[position])
 
         # solving of selection item problem, find all options from select form
-        options = test_object.are_present('tag_name', 'option')
+        options: list[WebElement] = test_object.are_present('tag_name', 'option')
         # get value attributes
-        options = [option.get_attribute("value") for option in options]
+        options: list[str] = [option.get_attribute("value") for option in options]
         # configure url line for select item ;)
         test_object.driver.get(f"{test_object.driver.current_url}" + f"?productOffering={options[position]}")
 
@@ -46,11 +50,11 @@ class TestUi:
         print(phone_parameters + variant_of_paying)
 
         # get current url of page
-        page_url = test_object.driver.current_url
+        page_url: str = test_object.driver.current_url
 
         # get button object to manipulation
-        btn = test_object.is_clickable("xpath",
-                                       '//*[@id="CURRENT_CONTRACT"]/div[1]/div[2]/div[3]/form/div[2]/div/button')
+        btn: WebElement = test_object.is_clickable("xpath", '//*[@id="CURRENT_CONTRACT"]/div[1]'
+                                                            '/div[2]/div[3]/form/div[2]/div/button')
         # move to button element
         test_object.driver.execute_script("arguments[0].scrollIntoView();", btn)
         # go to redirect page
